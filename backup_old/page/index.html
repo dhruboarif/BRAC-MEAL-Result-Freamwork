@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BRAC Archiving System | Module 02</title>
+<link rel="icon" href="../images/icon.png" type="icon.png">
+<link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
+<link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="../vendors/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/tool.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+<style>.chart {
+  width: 100%; 
+  min-height: 450px;
+}
+.row {
+  margin:0 !important;
+}</style>
+
+<style>
+ .lazy {
+        width: 100$; 
+        height: 100%; 
+        display: block;
+        
+        /* optional way, set loading as background */
+        background-image: url(../images/load.gif);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+</style>
+
+</head>
+<body>
+<div class="container-scroller">
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex align-items-center"> <a class="navbar-brand brand-logo" href="#"> <img src="../images/brac-logo-trn.png" alt="logo" class="logo-dark" /> </a> <a class="navbar-brand brand-logo-mini" href="#"><img src="../images/brac-logo-mini.png" alt="logo" /></a> </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+      <h5 class="mb-0 mr-3 font-weight-medium d-none d-lg-flex">BRAC Archiving System Dashboard</h5>
+      
+      <div class="btn-mod"><a href="../adpanel.html">Module 01</a></div>
+      <div class="btn-mod"><a href="/">Module 03</a></div>
+            
+            
+            
+      <ul class="navbar-nav navbar-nav-right ml-auto">
+        <form class="search-form d-none d-md-block" action="#">
+          <i class="icon-magnifier"></i>
+          <input type="search" class="form-control" placeholder="Search Here">
+        </form>
+        
+        <!--view-->
+        <!--<li class="nav-item btn-view"><a href="/">View</a></li>-->
+        <li class="nav-item"><a href="#" class="nav-link" data-title="Home"><i class="icon-home"></i></a></li>
+        <li class="nav-item dropdown"> <a class="nav-link count-indicator message-dropdown" data-title="Messages" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="icon-speech"></i> <span class="count">7</span> </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown"> <a href="../pages/inbox.html" class="dropdown-item py-3">
+            <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+            <span class="badge badge-pill badge-primary float-right">View all</span> </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail"> <img src="../images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
+            <div class="preview-item-content flex-grow py-2">
+              <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+              <p class="font-weight-light small-text"> The meeting is cancelled </p>
+            </div>
+            </a> <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail"> <img src="../images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> </div>
+            <div class="preview-item-content flex-grow py-2">
+              <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+              <p class="font-weight-light small-text"> The meeting is cancelled </p>
+            </div>
+            </a> <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail"> <img src="../images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
+            <div class="preview-item-content flex-grow py-2">
+              <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+              <p class="font-weight-light small-text"> The meeting is cancelled </p>
+            </div>
+            </a> </div>
+        </li>
+        <li class="nav-item"><a href="../index.html" class="nav-link" data-title="Logout"><i class=" icon-logout"></i></a></li>
+        <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown"> <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> <img class="img-xs rounded-circle ml-2" src="../images/head.png" alt="Profile image"> <span class="font-weight-normal"> Shafin Ahmed </span></a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+            <div class="dropdown-header text-center"> <img class="img-lg rounded-circle" src="../images/head.png" alt="Profile image">
+              <p class="mb-1 mt-3">Shafin Ahmed</p>
+              <p class="font-weight-light text-muted mb-0">shafin@gmail.com</p>
+            </div>
+            <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile </a> <a href="../index.html" class="dropdown-item"><i class="dropdown-item-icon icon-logout text-primary"></i>Sign Out</a> </div>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas"> <span class="icon-menu"></span> </button>
+    </div>
+  </nav>
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile"> <a href="#" class="nav-link">
+          <div class="profile-image"> <img class="img-xs rounded-circle" src="../images/head.png" alt="profile image">
+            <div class="dot-indicator bg-success"></div>
+          </div>
+          <div class="text-wrapper">
+            <p class="profile-name">Shafin Ahmed</p>
+            <p class="designation">Administrator</p>
+          </div>
+          </a> 
+          </li>
+          
+          
+          <li class="nav-item pro-upgrade">
+              <!--<span class="nav-link">
+                <a class="btn btn-block px-0 btn-upgrade">Module 01</a>
+              </span>-->
+              <div class="mod-hed">Module 02</div>
+            </li>
+        
+        
+      </ul>
+    </nav>
+    
+    
+    <div class="main-panel smt">
+    
+    <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body smart">
+                <h4 class="card-title">Progress on Pillars</h4>
+                <hr>
+                
+                 <span style="padding:5px 15px; border-radius:5px; background-color: rgba(255,190,96,1.00); color: rgba(62,62,62,1.00); font-size:14px">Pillar 1</span>
+                 
+                <p class="card-description"></p>
+                <form class="forms-sample">
+                <div class="table-responsive">
+                                
+                <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                
+                <table class="table table-bordered">
+	<tbody>
+    <thead class="hd-bk">
+		<tr>
+			<th colspan="2">Indicator</th>
+			<th id="txwrap5">Baseline</th>
+                    <th id="txwrap10">2016</th>
+                    <th id="txwrap10">2017</th>
+                    <th id="txwrap10">2018</th>
+                    <th>
+                    <select>
+                      <option selected disabled>Select</option>
+                      <option>Selection</option>
+                      <option>Selection</option>
+                    </select>
+                    </th>
+                    <th id="txwrap15">Cumulative</th>
+		</tr>
+    </thead>
+    
+		<tr>
+			<td rowspan="3">Impact indicator 1.1</td>
+			<td>Target</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Achievement</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>% Achieved
+            <div class="progress mt-3">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td rowspan="3">Outcome 1.1</td>
+			<td>Target</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Achievement</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>% Achieved
+            <div class="progress mt-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+        
+        <tr>
+			<td rowspan="3">Output 1.1.2</td>
+			<td>Target</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Achievement</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>% Achieved
+            <div class="progress mt-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</tbody>
+</table>
+              </div>
+              </form>
+              <div class="d-flex mt-4 flex-wrap">
+                      <p class="text-muted">Showing 1 of 57 Result</p>
+                      <nav class="ml-auto">
+                        <ul class="pagination separated pagination-info">
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
+                          <li class="page-item active disabled"><a href="#" class="page-link">1</a></li>
+                          <li class="page-item"><a href="#" class="page-link">2</a></li>
+                          <li class="page-item"><a href="#" class="page-link">3</a></li>
+                          <li class="page-item"><a href="#" class="page-link">4</a></li>
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
+                        </ul>
+                      </nav>
+                    </div>      
+                    
+              
+              <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+              
+              <h4 class="card-title mt-5">Progress on SDG Indicators </h4>
+              <hr>
+                <div class="table-responsive">
+                
+                <table class="table table-bordered">
+	<tbody>
+    <thead class="hd-bk">
+		<tr>
+        	
+			<th>Indicator</th>
+            <th></th>
+			<th>Baseline</th>
+            <th id="txwrap10">2016</th>
+            <th id="txwrap10">2017</th>
+            <th id="txwrap10">2018</th>
+            <th>
+            <select>
+              <option selected disabled>Select</option>
+              <option>Selection</option>
+              <option>Selection</option>
+            </select>
+            </th>
+            <th>Cumulative</th>
+		</tr>
+    </thead>
+        
+        
+		<tr>
+			<td>SDG 1.1</td>
+            <td width="150">
+            <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>SDG 1.2</td>
+            <td>
+            <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            </div>
+            </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+            <td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+                </div>
+                
+                <div class="d-flex mt-4 flex-wrap">
+                      <p class="text-muted">Showing 2 of 57 Result</p>
+                      <nav class="ml-auto">
+                        <ul class="pagination separated pagination-info">
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
+                          <li class="page-item active disabled"><a href="#" class="page-link">1</a></li>
+                          <li class="page-item"><a href="#" class="page-link">2</a></li>
+                          <li class="page-item"><a href="#" class="page-link">3</a></li>
+                          <li class="page-item"><a href="#" class="page-link">4</a></li>
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
+                        </ul>
+                      </nav>
+                    </div>   
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between"> <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.brac.net" target="_blank">BRAC</a>. All rights reserved.</span> </div>
+      </footer>
+    </div>
+  </div>
+</div>
+<script src="../vendors/js/vendor.bundle.base.js"></script> 
+<script src="../vendors/chart.js/Chart.min.js"></script> 
+<script src="../vendors/moment/moment.min.js"></script> 
+<script src="../vendors/daterangepicker/daterangepicker.js"></script> 
+<script src="../vendors/chartist/chartist.min.js"></script> 
+<script src="../js/off-canvas.js"></script> 
+<script src="../js/misc.js"></script> 
+<script src="../js/dashboard.js"></script>
+    <!--<script src="../js/nv.d3.js"></script>-->
+    <script src="../js/stream_layers.js"></script>
+    
+    <!--+++++++++++++++++++++++++++++++++++++++-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+		$(function() {
+        $('.lazy').lazy({
+        });
+    });
+	</script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../js/crt.js"></script>
+	
+    <!--<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>-->
+</body>
+</html>

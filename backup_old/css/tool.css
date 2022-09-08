@@ -1,0 +1,31 @@
+[data-title] {
+  position: relative;
+}
+
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -26px;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: #EC008C;
+  color: #fff;
+  font-weight:600; 
+  letter-spacing: 1px;
+  font-size: 12px;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif; 
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15)
+}
+[data-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0px;
+  display: inline-block;
+  color: #fff;
+  border: 12px solid transparent;	
+  border-bottom: 10px solid #EC008C;
+  
+}
